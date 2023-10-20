@@ -4,8 +4,10 @@ import { Pressable, View, Text, StyleSheet, TouchableOpacity } from "react-nativ
 export default function Technology() {
     return (
         <View style={styles.technology}>
-            <TouchableOpacity>
-                <Text style={styles.nome}>Add</Text>
+            <TouchableOpacity style={styles.marcarConcluida}>
+                <View style={styles.circle}>
+                    <Text style={styles.nome}>ok</Text>
+                </View>
             </TouchableOpacity>
 
             <Text style={styles.nome}>
@@ -31,6 +33,20 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     nome: {
-        color: '#F2F2F2'
+        color: '#F2F2F2',
+        textAlign: "center",
+    },
+    marcarConcluida: {
+        width: 24,
+        height: 24,
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
+    circle: {
+        width: 24,
+        height: 24,
+        borderColor: '#4EA8DE',
+        borderWidth: 2,
+        borderRadius: 24,
     }
 })

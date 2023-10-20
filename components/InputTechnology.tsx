@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet, View, Button, Pressable, Text } from "react-native";
+import { TextInput, StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
 
 export default function InputTechnology() {
@@ -10,9 +10,9 @@ export default function InputTechnology() {
                 style={styles.input}
             />
 
-            <Pressable style={styles.button}>
+            <TouchableOpacity activeOpacity={0.5} style={styles.button}>
                 <Text>+</Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
     )
 }
