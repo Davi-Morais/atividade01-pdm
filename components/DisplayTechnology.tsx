@@ -2,17 +2,26 @@ import { View, Text, StyleSheet } from "react-native"
 
 export default function DisplayTechnology() {
     return (
+
         <View style={styles.listaTarefas}>
-            <View style={styles.semTarefas}>
-                <Text style={styles.texto}>
-                    Você ainda não tem tecnologias cadastradas
-                </Text>
-                <Text style={styles.texto}>
-                    Crie tarefas e organize seus itens a fazer
-                </Text>
-            </View>
+
+            {true ? (
+                <View style={styles.comTarefas}>
+                    
+                </View>
+            ) : (
+                <View style={styles.semTarefas}>
+                    <Text style={styles.texto}>
+                        Você ainda não tem tecnologias cadastradas
+                    </Text>
+                    <Text style={styles.texto}>
+                        Crie tarefas e organize seus itens a fazer
+                    </Text>
+                </View>
+            )}
+
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -28,6 +37,9 @@ const styles = StyleSheet.create({
     semTarefas: {
         marginTop: 20,
         paddingVertical: 48,
+    },
+    comTarefas: {
+        flexDirection: 'column',
     },
     texto: {
         textAlign: "center",
