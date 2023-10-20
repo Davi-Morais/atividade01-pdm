@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Info from "./Info";
+import InputTechnology from "./InputTechnology";
 
 export default function List() {
 
@@ -9,6 +10,7 @@ export default function List() {
 
     return (
         <View style={styles.conteiner}>
+            <InputTechnology />
             <View style={styles.status}>
                 <Info name="Criadas" color="#4EA8DE" quantity={tarefas} />
                 <Info name="Concluidas" color="#8284FA" quantity={tarefas} />
@@ -22,11 +24,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#1A1A1A',
         width: 410,
         height: 600,
-        padding: 24
+        paddingHorizontal: 24
     },
     status: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: 55
+        
     }
 })

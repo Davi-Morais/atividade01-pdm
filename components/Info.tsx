@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     info: {
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: 6
     },
     background: {
         width: 25,
@@ -29,7 +30,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#333333',
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 999
+        borderRadius: 999,
+        marginLeft: 8
     },
     valores: {
         color: 'aliceblue',
