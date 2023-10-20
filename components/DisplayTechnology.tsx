@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, ScrollView } from "react-native"
+import Technology from "./Technology";
 
 export default function DisplayTechnology() {
     return (
@@ -6,9 +7,18 @@ export default function DisplayTechnology() {
         <View style={styles.listaTarefas}>
 
             {true ? (
-                <View style={styles.comTarefas}>
-                    
-                </View>
+                <ScrollView contentContainerStyle={styles.comTarefas}>
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                    <Technology />
+                </ScrollView>
             ) : (
                 <View style={styles.semTarefas}>
                     <Text style={styles.texto}>
@@ -33,6 +43,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 20,
+        marginBottom: 110,
     },
     semTarefas: {
         marginTop: 20,
