@@ -1,7 +1,12 @@
-import { Pressable, View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 
-export default function Technology() {
+interface Props {
+    texto: string,
+}
+
+
+export default function Technology( { texto }:Props ) {
     return (
         <View style={styles.technology}>
             <TouchableOpacity style={styles.marcarConcluida}>
@@ -11,7 +16,7 @@ export default function Technology() {
             </TouchableOpacity>
 
             <Text style={styles.technologyName}>
-                Alguma tecnologia
+                {texto}
             </Text>
 
             <TouchableOpacity>
@@ -20,6 +25,7 @@ export default function Technology() {
         </View>
     )
 }
+
 
 const styles = StyleSheet.create({
     technology: {
