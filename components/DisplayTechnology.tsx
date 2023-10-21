@@ -1,24 +1,32 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native"
+import { View, Text, StyleSheet, SafeAreaView, FlatList } from "react-native"
 import Technology from "./Technology";
 
-export default function DisplayTechnology() {
+
+type Technology = {
+    isCompleted: boolean,
+    nameNewTechnology: string,
+}
+
+interface Props {
+    arrayTechnologies: Technology[]
+}
+
+
+export default function DisplayTechnology({ arrayTechnologies } : Props) {
+
+
     return (
 
         <View style={styles.listaTarefas}>
 
-            {true ? (
-                <ScrollView contentContainerStyle={styles.comTarefas}>
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                    <Technology />
-                </ScrollView>
+            {arrayTechnologies.length > 0 ? (
+                <SafeAreaView style={styles.comTarefas}>
+                    <FlatList
+                        data={arrayTechnologies}
+                        renderItem={(item) => <Technology />}
+                        keyExtractor={(item, index) => index.toString()}
+                    />
+                </SafeAreaView>
             ) : (
                 <View style={styles.semTarefas}>
                     <Text style={styles.texto}>

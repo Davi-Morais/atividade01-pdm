@@ -29,7 +29,7 @@ export default function List() {
                     <Info name="Concluidas" color="#8284FA" quantity={concluidas} />
                 </View>
 
-                <DisplayTechnology />
+                <DisplayTechnology arrayTechnologies={arrayTechnologies} />
             </View>
         </View>
     )
