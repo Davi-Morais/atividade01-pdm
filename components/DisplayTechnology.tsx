@@ -22,7 +22,7 @@ export default function DisplayTechnology({ arrayTechnologies } : Props) {
             {arrayTechnologies.length > 0 ? (
                 <SafeAreaView style={styles.comTarefas}>
                     <FlatList
-                        data={arrayTechnologies}
+                        data={arrayTechnologies.slice().reverse()}
                         renderItem={({item}) => <Technology texto={item.nameNewTechnology} />}
                         keyExtractor={(item, index) => index.toString()}
                     />

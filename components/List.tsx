@@ -15,8 +15,6 @@ export default function List() {
 
 
     const [arrayTechnologies, setArrayTechnology] = useState<Technology[]>([]);
-    const [tarefas, setTarefas] = useState(0);
-    const [concluidas, setConcluidas] = useState(0);
 
     
     return (
@@ -25,8 +23,8 @@ export default function List() {
 
             <View>
                 <View style={styles.status}>
-                    <Info name="Criadas" color="#4EA8DE" quantity={tarefas} />
-                    <Info name="Concluidas" color="#8284FA" quantity={concluidas} />
+                    <Info name="Criadas" color="#4EA8DE" quantity={arrayTechnologies.length} />
+                    <Info name="Concluidas" color="#8284FA" quantity={arrayTechnologies.length} />
                 </View>
 
                 <DisplayTechnology arrayTechnologies={arrayTechnologies} />
