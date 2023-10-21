@@ -1,16 +1,48 @@
 import { TextInput, StyleSheet, View, TouchableOpacity, Text } from "react-native";
+import { useState } from "react";
+import Technology from "./Technology";
 
 
-export default function InputTechnology() {
+type Technology = {
+    isCompleted: boolean,
+    nameNewTechnology: string,
+}
+
+
+interface Props {
+    arrayTechnologies: Technology[],
+    function_Update_ArrayTechnologies: ( technologies: Technology[] ) => void
+}
+
+
+export default function InputTechnology( { arrayTechnologies, function_Update_ArrayTechnologies } : Props ) {
+
+    const [ userInputText, setUserInputText ] = useState('');
+    
+
+    function addNewItemArray() {
+        if (userInputText === '') return;
+
+        const objectNew:Technology = { isCompleted: false, nameNewTechnology: userInputText};
+
+        function_Update_ArrayTechnologies([...arrayTechnologies, objectNew]);
+    }
+
+
     return (
         <View style={styles.container}>
             <TextInput 
                 placeholder="Adiciona uma nova tecnologia"
                 placeholderTextColor="#808080"
                 style={styles.input}
+                onChangeText={(e) => setUserInputText(e)}
             />
 
-            <TouchableOpacity activeOpacity={0.5} style={styles.button}>
+            <TouchableOpacity 
+            activeOpacity={0.5} 
+            style={styles.button} 
+            onPress={addNewItemArray}
+            >
                 <Text>+</Text>
             </TouchableOpacity>
         </View>
