@@ -4,14 +4,25 @@ import Info from "./Info";
 import InputTechnology from "./InputTechnology";
 import DisplayTechnology from "./DisplayTechnology";
 
+
+type Technology = {
+    isCompleted: boolean,
+    nameNewTechnology: string,
+}
+
+
 export default function List() {
 
+
+    const [arrayTechnologies, setArrayTechnology] = useState<Technology[]>([]);
     const [tarefas, setTarefas] = useState(0);
     const [concluidas, setConcluidas] = useState(0);
 
+    
     return (
         <View style={styles.conteiner}>
-            <InputTechnology />
+            <InputTechnology arrayTechnologies={arrayTechnologies} function_Update_ArrayTechnologies={setArrayTechnology} />
+
             <View>
                 <View style={styles.status}>
                     <Info name="Criadas" color="#4EA8DE" quantity={tarefas} />
@@ -22,7 +33,10 @@ export default function List() {
             </View>
         </View>
     )
+
+
 }
+
 
 const styles = StyleSheet.create({
     conteiner: {
@@ -36,3 +50,4 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
 })
+
