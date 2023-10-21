@@ -16,6 +16,12 @@ export default function List() {
 
     const [arrayTechnologies, setArrayTechnology] = useState<Technology[]>([]);
 
+
+    function removerTechnology(name:string) {
+        const newArray = arrayTechnologies.filter((e) => e.nameNewTechnology !== name);
+        setArrayTechnology(newArray);
+    }
+
     
     return (
         <View style={styles.conteiner}>
@@ -27,7 +33,7 @@ export default function List() {
                     <Info name="Concluidas" color="#8284FA" quantity={arrayTechnologies.length} />
                 </View>
 
-                <DisplayTechnology arrayTechnologies={arrayTechnologies} />
+                <DisplayTechnology arrayTechnologies={arrayTechnologies} functionRemoveTechnology={removerTechnology} />
             </View>
         </View>
     )
