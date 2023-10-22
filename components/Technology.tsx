@@ -9,14 +9,15 @@ type Technology = {
 
 interface Props {
     item: Technology,
-    clear: (id:number) => void
+    clear: (id:number) => void,
+    update: (id:number) => void,
 }
 
 
-export default function Technology( { item, clear }:Props ) {
+export default function Technology( { item, clear, update }:Props ) {
     return (
         <View style={styles.technology}>
-            <TouchableOpacity style={styles.marcarConcluida}>
+            <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
                 <View style={styles.circle}>
                     <Text style={styles.nome}>ok</Text>
                 </View>

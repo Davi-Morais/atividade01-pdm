@@ -23,10 +23,20 @@ export default function List() {
         setArrayTechnology(newArray);
     }
 
+    function changeStateCompleted(id:number) {
+        const newArray = arrayTechnologies.map((e) => {
+            if(e.id == Number(id)) {
+                return { ...e, isCompleted: !e.isCompleted };
+            }
+            return e;
+        })
+        setArrayTechnology(newArray);
+    }
+    console.log(arrayTechnologies)
     
     return (
         <View style={styles.conteiner}>
-            <InputTechnology arrayTechnologies={arrayTechnologies} function_Update_ArrayTechnologies={setArrayTechnology} />
+            <InputTechnology arrayTechnologies={arrayTechnologies} function_Update_ArrayTechnologies={setArrayTechnology}  />
 
             <View>
                 <View style={styles.status}>
@@ -34,7 +44,7 @@ export default function List() {
                     <Info name="Concluidas" color="#8284FA" quantity={arrayTechnologies.length} />
                 </View>
 
-                <DisplayTechnology arrayTechnologies={arrayTechnologies} functionRemoveTechnology={removerTechnology} />
+                <DisplayTechnology arrayTechnologies={arrayTechnologies} functionRemoveTechnology={removerTechnology} functionChangeCompleted={changeStateCompleted} />
             </View>
         </View>
     )

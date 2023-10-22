@@ -10,11 +10,12 @@ type Technology = {
 
 interface Props {
     arrayTechnologies: Technology[],
-    functionRemoveTechnology: (id:number) => void
+    functionRemoveTechnology: (id:number) => void,
+    functionChangeCompleted: (id:number) => void
 }
 
 
-export default function DisplayTechnology({ arrayTechnologies, functionRemoveTechnology } : Props) {
+export default function DisplayTechnology({ arrayTechnologies, functionRemoveTechnology, functionChangeCompleted } : Props) {
 
 
     return (
@@ -25,7 +26,7 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
                 <SafeAreaView style={styles.comTarefas}>
                     <FlatList
                         data={arrayTechnologies.slice().reverse()}
-                        renderItem={({item}) => <Technology item={item} clear={functionRemoveTechnology} />}
+                        renderItem={({item}) => <Technology item={item} clear={functionRemoveTechnology} update={functionChangeCompleted} />}
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </SafeAreaView>
