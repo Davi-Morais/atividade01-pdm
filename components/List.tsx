@@ -6,6 +6,7 @@ import DisplayTechnology from "./DisplayTechnology";
 
 
 type Technology = {
+    id: number,
     isCompleted: boolean,
     nameNewTechnology: string,
 }
@@ -17,8 +18,8 @@ export default function List() {
     const [arrayTechnologies, setArrayTechnology] = useState<Technology[]>([]);
 
 
-    function removerTechnology(name:string) {
-        const newArray = arrayTechnologies.filter((e) => e.nameNewTechnology !== name);
+    function removerTechnology(id:number) {
+        const newArray = arrayTechnologies.filter((e) => e.id !== id);
         setArrayTechnology(newArray);
     }
 

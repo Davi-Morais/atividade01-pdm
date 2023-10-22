@@ -3,13 +3,14 @@ import Technology from "./Technology";
 
 
 type Technology = {
+    id: number,
     isCompleted: boolean,
     nameNewTechnology: string,
 }
 
 interface Props {
     arrayTechnologies: Technology[],
-    functionRemoveTechnology: (name:string) => void
+    functionRemoveTechnology: (id:number) => void
 }
 
 
@@ -24,7 +25,7 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
                 <SafeAreaView style={styles.comTarefas}>
                     <FlatList
                         data={arrayTechnologies.slice().reverse()}
-                        renderItem={({item}) => <Technology texto={item.nameNewTechnology} clear={functionRemoveTechnology} />}
+                        renderItem={({item}) => <Technology item={item} clear={functionRemoveTechnology} />}
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </SafeAreaView>

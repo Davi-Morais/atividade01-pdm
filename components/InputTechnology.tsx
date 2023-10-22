@@ -4,6 +4,7 @@ import Technology from "./Technology";
 
 
 type Technology = {
+    id: number,
     isCompleted: boolean,
     nameNewTechnology: string,
 }
@@ -18,12 +19,14 @@ interface Props {
 export default function InputTechnology( { arrayTechnologies, function_Update_ArrayTechnologies } : Props ) {
 
     const [ userInputText, setUserInputText ] = useState('');
+    const [id, setID] = useState(1);
     
 
     function addNewItemArray() {
         if (userInputText === '') return;
 
-        const objectNew:Technology = { isCompleted: false, nameNewTechnology: userInputText};
+        const objectNew:Technology = { id: id, isCompleted: false, nameNewTechnology: userInputText};
+        setID(id + 1);
 
         function_Update_ArrayTechnologies([...arrayTechnologies, objectNew]);
     }

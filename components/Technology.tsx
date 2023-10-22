@@ -1,13 +1,19 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 
+type Technology = {
+    id: number,
+    isCompleted: boolean,
+    nameNewTechnology: string,
+}
+
 interface Props {
-    texto: string,
-    clear: (name:string) => void
+    item: Technology,
+    clear: (id:number) => void
 }
 
 
-export default function Technology( { texto, clear }:Props ) {
+export default function Technology( { item, clear }:Props ) {
     return (
         <View style={styles.technology}>
             <TouchableOpacity style={styles.marcarConcluida}>
@@ -17,11 +23,11 @@ export default function Technology( { texto, clear }:Props ) {
             </TouchableOpacity>
 
             <Text style={styles.technologyName}>
-                {texto}
+                {item.nameNewTechnology }
             </Text>
 
             <TouchableOpacity
-            onPress={() => clear(texto)}>
+            onPress={() => clear(item.id)}>
                 <Text style={styles.nome}>Clear</Text>
             </TouchableOpacity>
         </View>
