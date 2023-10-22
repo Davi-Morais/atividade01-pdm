@@ -16,24 +16,38 @@ export default function List() {
 
 
     const [arrayTechnologies, setArrayTechnology] = useState<Technology[]>([]);
+    const [concluidas, setConcluidas] = useState(0);
 
 
     function removerTechnology(id:number) {
         const newArray = arrayTechnologies.filter((e) => e.id !== id);
         setArrayTechnology(newArray);
+        getConcluidas(); //atualiza a quantidade de tarefas concluidas
     }
 
     function changeStateCompleted(id:number) {
         const newArray = arrayTechnologies.map((e) => {
-            if(e.id == Number(id)) {
-                return { ...e, isCompleted: !e.isCompleted };
+            if(e.id == id) {
+                e.isCompleted = !e.isCompleted
+                return e;
             }
             return e;
         })
         setArrayTechnology(newArray);
+        getConcluidas(); //atualiza a quantidade de tarefas concluidas
     }
-    console.log(arrayTechnologies)
     
+
+    function getConcluidas() {
+        const atividadesConcluidas = arrayTechnologies.filter((e) => {
+            if (e.isCompleted == true) {
+                return e;
+            }
+        })
+        setConcluidas(atividadesConcluidas.length)
+    }
+
+
     return (
         <View style={styles.conteiner}>
             <InputTechnology arrayTechnologies={arrayTechnologies} function_Update_ArrayTechnologies={setArrayTechnology}  />
@@ -41,7 +55,7 @@ export default function List() {
             <View>
                 <View style={styles.status}>
                     <Info name="Criadas" color="#4EA8DE" quantity={arrayTechnologies.length} />
-                    <Info name="Concluidas" color="#8284FA" quantity={arrayTechnologies.length} />
+                    <Info name="Concluidas" color="#8284FA" quantity={concluidas} />
                 </View>
 
                 <DisplayTechnology arrayTechnologies={arrayTechnologies} functionRemoveTechnology={removerTechnology} functionChangeCompleted={changeStateCompleted} />
