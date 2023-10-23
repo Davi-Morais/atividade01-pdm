@@ -23,9 +23,18 @@ export default function Technology( { item, clear, update }:Props ) {
                 </View>
             </TouchableOpacity>
 
+            {item.isCompleted === true 
+            ?
+            (
+            <Text style={styles.concluida}>
+                {item.nameNewTechnology }
+            </Text>
+            ) : (
             <Text style={styles.technologyName}>
                 {item.nameNewTechnology }
             </Text>
+            )
+            }
 
             <TouchableOpacity
             onPress={() => clear(item.id)}>
@@ -47,6 +56,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 8,
         marginBottom: 8,
+    },
+    concluida: {
+        color: '#F2F2F2',
+        textAlign: "center",
+        maxWidth: 250,
+        textDecorationLine: "line-through",
     },
     technologyName: {
         color: '#F2F2F2',
