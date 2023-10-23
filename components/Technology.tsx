@@ -16,12 +16,25 @@ interface Props {
 
 export default function Technology( { item, clear, update }:Props ) {
     return (
-        <View style={styles.technology}>
-            <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
-                <View style={styles.circle}>
-                    <Text style={styles.nome}>ok</Text>
-                </View>
-            </TouchableOpacity>
+        <View style={[styles.technology, item.isCompleted ? { borderWidth: 0 } : {}]}>
+
+
+            {item.isCompleted === true
+            ? (
+                <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
+                    <View style={styles.circleConcluida}>
+                        <Text style={styles.nome}>ok</Text>
+                    </View>
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
+                    <View style={styles.circle}>
+                        <Text style={styles.nome}></Text>
+                    </View>
+                </TouchableOpacity>
+            )
+            }
+
 
             {item.isCompleted === true 
             ?
@@ -36,10 +49,13 @@ export default function Technology( { item, clear, update }:Props ) {
             )
             }
 
+
             <TouchableOpacity
             onPress={() => clear(item.id)}>
                 <Text style={styles.nome}>Clear</Text>
             </TouchableOpacity>
+
+            
         </View>
     )
 }
@@ -56,6 +72,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 8,
         marginBottom: 8,
+        borderColor: '#333333',
+        borderWidth: 1,
     },
     concluida: {
         color: '#F2F2F2',
@@ -84,5 +102,15 @@ const styles = StyleSheet.create({
         borderColor: '#4EA8DE',
         borderWidth: 2,
         borderRadius: 24,
+    },
+    circleConcluida: {
+        width: 24,
+        height: 24,
+        borderColor: '#5E60CE',
+        borderWidth: 2,
+        borderRadius: 24,
+        backgroundColor: '#5E60CE',
     }
 })
+
+//5E60CE
