@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     concluida: {
-        color: '#F2F2F2',
+        color: '#808080',
         textAlign: "center",
         maxWidth: 250,
         textDecorationLine: "line-through",

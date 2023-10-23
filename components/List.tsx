@@ -22,7 +22,8 @@ export default function List() {
     function removerTechnology(id:number) {
         const newArray = arrayTechnologies.filter((e) => e.id !== id);
         setArrayTechnology(newArray);
-        getConcluidas(); //atualiza a quantidade de tarefas concluidas
+
+        getConcluidas(newArray); //atualiza a quantidade de tarefas concluidas
     }
 
     function changeStateCompleted(id:number) {
@@ -34,13 +35,14 @@ export default function List() {
             return e;
         })
         setArrayTechnology(newArray);
-        getConcluidas(); //atualiza a quantidade de tarefas concluidas
+        
+        getConcluidas(newArray); //atualiza a quantidade de tarefas concluidas
     }
-    
 
-    function getConcluidas() {
-        const atividadesConcluidas = arrayTechnologies.filter((e) => {
-            if (e.isCompleted == true) {
+
+    function getConcluidas(newArray:Technology[]) {
+        const atividadesConcluidas = newArray.filter((e) => {
+            if (e.isCompleted === true) {
                 return e;
             }
         })
