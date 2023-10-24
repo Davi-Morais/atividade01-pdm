@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import Info from "./Info";
-import InputTechnology from "./InputTechnology";
-import DisplayTechnology from "./DisplayTechnology";
+import Info from "../Info";
+import InputTechnology from "../InputTechnology";
+import DisplayTechnology from "../DisplayTechnology";
 
 
 type Technology = {

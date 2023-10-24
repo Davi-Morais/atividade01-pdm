@@ -1,6 +1,6 @@
 import { TextInput, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
-import Technology from "./Technology";
+import Technology from "../Technology";
 
 
 type Technology = {
@@ -46,7 +46,7 @@ export default function InputTechnology( { arrayTechnologies, function_Update_Ar
             style={styles.button} 
             onPress={addNewItemArray}
             >
-                <Image source={require('../images/plus.png')}></Image>
+                <Image source={require('../../images/plus.png')}></Image>
             </TouchableOpacity>
         </View>
     )

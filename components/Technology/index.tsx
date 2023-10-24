@@ -23,7 +23,7 @@ export default function Technology( { item, clear, update }:Props ) {
             ? (
                 <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
                     <View>
-                        <Image style={styles.circleConcluida} source={require('../images/Layer_1.png')} />
+                        <Image style={styles.circleConcluida} source={require('../../images/Layer_1.png')} />
                     </View>
                 </TouchableOpacity>
             ) : (
@@ -52,7 +52,7 @@ export default function Technology( { item, clear, update }:Props ) {
 
             <TouchableOpacity
             onPress={() => clear(item.id)}>
-                <Image source={require('../images/Layer_2.png')} />
+                <Image source={require('../../images/Layer_2.png')} />
             </TouchableOpacity>
 
             

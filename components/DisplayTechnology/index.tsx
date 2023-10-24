@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, FlatList, Image } from "react-native"
-import Technology from "./Technology";
+import Technology from "../Technology";
 
 
 type Technology = {
@@ -33,7 +33,7 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
             ) : (
                 <View style={styles.semTarefas}>
 
-                    <Image style={styles.image} source={require('../images/Clipboard.png')} />
+                    <Image style={styles.image} source={require('../../images/Clipboard.png')} />
                     
                     <Text style={styles.texto}>
                         Você ainda não tem tecnologias cadastradas
