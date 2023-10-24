@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, FlatList } from "react-native"
+import { View, Text, StyleSheet, SafeAreaView, FlatList, Image } from "react-native"
 import Technology from "./Technology";
 
 
@@ -32,6 +32,9 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
                 </SafeAreaView>
             ) : (
                 <View style={styles.semTarefas}>
+
+                    <Image style={styles.image} source={require('../images/Clipboard.png')} />
+                    
                     <Text style={styles.texto}>
                         Você ainda não tem tecnologias cadastradas
                     </Text>
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
     semTarefas: {
         marginTop: 20,
         paddingVertical: 48,
+        alignItems: "center"
     },
     comTarefas: {
         flexDirection: 'column',
@@ -69,4 +73,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: '#808080'
     },
+    image: {
+        width: 56,
+        height: 56,
+        marginBottom: 16
+    }
 })
