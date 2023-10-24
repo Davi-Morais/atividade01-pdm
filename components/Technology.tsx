@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 
 type Technology = {
@@ -22,8 +22,8 @@ export default function Technology( { item, clear, update }:Props ) {
             {item.isCompleted === true
             ? (
                 <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
-                    <View style={styles.circleConcluida}>
-                        <Text style={styles.nome}>ok</Text>
+                    <View>
+                        <Image style={styles.circleConcluida} source={require('../images/Layer_1.png')} />
                     </View>
                 </TouchableOpacity>
             ) : (
@@ -52,7 +52,7 @@ export default function Technology( { item, clear, update }:Props ) {
 
             <TouchableOpacity
             onPress={() => clear(item.id)}>
-                <Text style={styles.nome}>Clear</Text>
+                <Image source={require('../images/Layer_2.png')} />
             </TouchableOpacity>
 
             
@@ -105,11 +105,7 @@ const styles = StyleSheet.create({
     },
     circleConcluida: {
         width: 24,
-        height: 24,
-        borderColor: '#5E60CE',
-        borderWidth: 2,
-        borderRadius: 24,
-        backgroundColor: '#5E60CE',
+        height: 24
     }
 })
 
