@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView, FlatList, Image } from "react-native"
 import Technology from "../Technology";
+import { useState } from "react";
 
 
 type Technology = {
@@ -16,7 +17,12 @@ interface Props {
 
 
 export default function DisplayTechnology({ arrayTechnologies, functionRemoveTechnology, functionChangeCompleted } : Props) {
+       
+    const incompleteItems = arrayTechnologies.filter((item) => item.isCompleted === false);
+    const completedItems = arrayTechnologies.filter((item) => item.isCompleted === true);
 
+    const sortedArray = completedItems.concat(incompleteItems);  //vai haver um .reverse() na linha 34, por isso foi concatenado  assim
+    
 
     return (
 
@@ -25,7 +31,7 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
             {arrayTechnologies.length > 0 ? (
                 <SafeAreaView style={styles.comTarefas}>
                     <FlatList
-                        data={arrayTechnologies.slice().reverse()}
+                        data={sortedArray.slice().reverse()}
                         renderItem={({item}) => <Technology item={item} clear={functionRemoveTechnology} update={functionChangeCompleted} />}
                         keyExtractor={(item, index) => index.toString()}
                     />
