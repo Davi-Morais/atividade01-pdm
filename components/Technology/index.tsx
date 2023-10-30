@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 type Technology = {
     id: number,
@@ -23,7 +24,7 @@ export default function Technology( { item, clear, update }:Props ) {
             ? (
                 <TouchableOpacity style={styles.marcarConcluida} onPress={() => update(item.id)} >
                     <View>
-                        <Image style={styles.circleConcluida} source={require('../../images/Layer_1.png')} />
+                        <AntDesign name="checkcircle" size={24} color="#5E60CE" />
                     </View>
                 </TouchableOpacity>
             ) : (
@@ -52,7 +53,7 @@ export default function Technology( { item, clear, update }:Props ) {
 
             <TouchableOpacity
             onPress={() => clear(item.id)}>
-                <Image source={require('../../images/Layer_2.png')} />
+                <Feather name="trash-2" size={24} color="aliceblue" />
             </TouchableOpacity>
 
             
@@ -109,4 +110,3 @@ const styles = StyleSheet.create({
     }
 })
 
-//5E60CE

@@ -1,6 +1,7 @@
-import { TextInput, StyleSheet, View, TouchableOpacity, Image } from "react-native";
+import { TextInput, StyleSheet, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import Technology from "../Technology";
+import { AntDesign } from '@expo/vector-icons';
 
 
 type Technology = {
@@ -46,7 +47,7 @@ export default function InputTechnology( { arrayTechnologies, function_Update_Ar
             style={styles.button} 
             onPress={addNewItemArray}
             >
-                <Image source={require('../../images/plus.png')}></Image>
+                <AntDesign name="pluscircleo" size={20} color="aliceblue" />
             </TouchableOpacity>
         </View>
     )

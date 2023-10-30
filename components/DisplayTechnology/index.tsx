@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, SafeAreaView, FlatList, Image } from "react-native"
 import Technology from "../Technology";
 import { useState } from "react";
-
+import { FontAwesome5 } from '@expo/vector-icons';
 
 type Technology = {
     id: number,
@@ -39,8 +39,10 @@ export default function DisplayTechnology({ arrayTechnologies, functionRemoveTec
             ) : (
                 <View style={styles.semTarefas}>
 
-                    <Image style={styles.image} source={require('../../images/Clipboard.png')} />
-                    
+                    <View style={styles.image}>
+                        <FontAwesome5 name="clipboard-list" size={80} color="aliceblue" />
+                    </View>
+
                     <Text style={styles.texto}>
                         Você ainda não tem tecnologias cadastradas
                     </Text>
@@ -80,8 +82,6 @@ const styles = StyleSheet.create({
         color: '#808080'
     },
     image: {
-        width: 56,
-        height: 56,
         marginBottom: 16
     }
 })
